@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextInput as NativeTextInput, StyleSheet } from 'react-native';
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   field: {
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
   errorField: {
     borderWidth: 1,
     borderRadius: 2,
-    borderColor: '#d73a4a',
+    borderColor: theme.colors.error,
     marginVertical: 2
   }
 });
