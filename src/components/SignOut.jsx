@@ -8,7 +8,7 @@ const SignOut = () => {
     const authStorage = useContext(AuthStorageContext);
     const apolloClient = useApolloClient();
     await authStorage.removeAccessToken();
-    apolloClient.resetStore();
+    await apolloClient.resetStore();
   };
   signOut();
   return (

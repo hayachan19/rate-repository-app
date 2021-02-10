@@ -20,9 +20,8 @@ const styles = StyleSheet.create({
     }
 });
 
-
 const AppBar = () => {
-    const { loading, data } = useQuery(GET_CURRENT_USER);
+    const { loading, data } = useQuery(GET_CURRENT_USER, { fetchPolicy: 'cache-and-network' });
     let currentUser;
     if (!loading) {
         currentUser = data.authorizedUser;
@@ -32,8 +31,15 @@ const AppBar = () => {
             <AppBarTab text='Repositories' link='/' style={styles.item} />
             {
                 currentUser ?
-                    <AppBarTab text='Sign Out' link='/signout' style={styles.item} /> :
-                    <AppBarTab text='Sign In' link='/signin' style={styles.item} />
+                    <>
+                        <AppBarTab text='My reviews' link='/reviews' style={styles.item} />
+                        <AppBarTab text='Create a review' link='/review' style={styles.item} />
+                        <AppBarTab text='Sign Out' link='/signout' style={styles.item} />
+                    </> :
+                    <>
+                        <AppBarTab text='Sign In' link='/signin' style={styles.item} />
+                        <AppBarTab text='Sign Up' link='/signup' style={styles.item} />
+                    </>
             }
         </ScrollView>
     </View>;

@@ -5,7 +5,12 @@ import RepositoryList from './RepositoryList';
 import AppBar from './AppBar';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
+import SignUp from './SignUp';
+import Review from './Review';
+import SingleRepository from './SingleRepository';
+import UserReviews from './UserReviews';
 import theme from '../theme';
+
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
@@ -30,7 +35,19 @@ const Main = () => {
                     <Route path="/signout" exact>
                         <SignOut />
                     </Route>
-                    <Redirect to="/" />
+                     <Route path="/signup" exact>
+                        <SignUp />
+                    </Route>
+                    <Route path="/review" exact>
+                        <Review />
+                    </Route>
+                    <Route path="/reviews" exact>
+                        <UserReviews />
+                    </Route>
+                    <Route path="/:repository">
+                        <SingleRepository />
+                    </Route>
+                    <Redirect to='/' />
                 </Switch>
             </View>
         </>

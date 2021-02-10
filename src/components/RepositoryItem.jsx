@@ -42,7 +42,7 @@ const Stat = ({ name, value }) => {
     const autoValue = value >= 1000 ? (value / 1000).toFixed(1).toString() + 'k' : value;
     return (
         <View style={styles.stat}>
-            <Text fontWeight='bold'>{autoValue}</Text>
+            <Text testID={'repository' + name} fontWeight='bold'>{autoValue}</Text>
             <Text>{name}</Text>
         </View>
     );
@@ -54,9 +54,9 @@ const RepositoryItem = ({ item }) => {
             <View style={styles.header}>
                 <Image style={styles.avatar} source={{ uri: item.ownerAvatarUrl }}></Image>
                 <View style={styles.info}>
-                    <Text fontSize='subheading' fontWeight='bold'>{item.fullName}</Text>
-                    <Text color='textSecondary'>{item.description}</Text>
-                    <Text style={styles.badge} >{item.language}</Text>
+                    <Text testID='repositoryName' fontSize='subheading' fontWeight='bold'>{item.fullName}</Text>
+                    <Text testID='repositoryDescription' color='textSecondary'>{item.description}</Text>
+                    <Text testID='repositoryLanguage' style={styles.badge} >{item.language}</Text>
                 </View>
             </View>
             <View style={styles.stats}>
